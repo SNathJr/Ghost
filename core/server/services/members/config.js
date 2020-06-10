@@ -4,7 +4,7 @@ const path = require('path');
 
 const COMPLIMENTARY_PLAN = {
     name: 'Complimentary',
-    currency: 'usd',
+    currency: 'inr',
     interval: 'year',
     amount: '0'
 };
@@ -53,7 +53,8 @@ class MembersConfigProvider {
             AUD: '$',
             CAD: '$',
             GBP: '£',
-            EUR: '€'
+            EUR: '€',
+            INR: '₹'
         };
         const defaultPriceData = {
             monthly: 0,
@@ -74,7 +75,7 @@ class MembersConfigProvider {
                 });
             }, {});
 
-            priceData.currency = String.prototype.toUpperCase.call(stripeProcessor.config.currency || 'usd');
+            priceData.currency = String.prototype.toUpperCase.call(stripeProcessor.config.currency || 'inr');
             priceData.currency_symbol = CURRENCY_SYMBOLS[priceData.currency];
 
             if (Number.isInteger(priceData.monthly) && Number.isInteger(priceData.yearly)) {
