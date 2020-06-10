@@ -52,7 +52,8 @@ function haxGetMembersPriceData() {
         AUD: '$',
         CAD: '$',
         GBP: '£',
-        EUR: '€'
+        EUR: '€',
+        INR: '₹'
     };
     const defaultPriceData = {
         monthly: 0,
@@ -73,7 +74,7 @@ function haxGetMembersPriceData() {
             });
         }, {});
 
-        priceData.currency = String.prototype.toUpperCase.call(stripeProcessor.config.currency || 'usd');
+        priceData.currency = String.prototype.toUpperCase.call(stripeProcessor.config.currency || 'inr');
         priceData.currency_symbol = CURRENCY_SYMBOLS[priceData.currency];
 
         if (Number.isInteger(priceData.monthly) && Number.isInteger(priceData.yearly)) {
